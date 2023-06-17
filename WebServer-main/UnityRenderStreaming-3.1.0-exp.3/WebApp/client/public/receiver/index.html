@@ -1,0 +1,250 @@
+<!DOCTYPE HTML>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+  <!-- <link rel="stylesheet" href="../css/main.css" /> -->
+  <link rel="stylesheet" href="css/style.css" />
+  <title>Alteration Hunting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body, h1, h2, h3, h4, h5 {
+      font-family: "Poppins", sans-serif
+    }
+
+    body {
+      font-size: 16px;
+    }
+
+    img {
+      margin-bottom: -8px;
+    }
+
+    .mySlides {
+      display: none;
+    }
+    /* Create two equal columns that floats next to each other */
+    .column {
+      float: left;
+      width: 50%;
+      padding: 10px;
+      height: 300px; /* Should be removed. Only for demonstration */
+    }
+
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+      .column {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <h1 class="w3-jumbo w3-center"><b>ALTERATION HUNTING</b></h1>
+
+    <div id="warning" hidden=true></div>
+
+    <div id="player"></div>
+
+    <section class="w3-center">
+      <a class="w3-hover-text-blue " href="https://github.com/Unity-Technologies/UnityRenderStreaming/tree/develop/WebApp/public/receiver"
+         title="View source for this page on GitHub" id="viewSource">View source on GitHub</a>
+    </section>
+  </div>
+  <h1 class="w3-xlarge w3-text-red w3-center">
+    <i class="fa fa-exclamation-circle"></i><b> Only available to developers associated with the project.</b>
+  </h1>
+
+  <!-- Input controls Section -->
+  <div class="w3-light-grey">
+    <div class="w3-row-padding">
+      <div class="w3-col l8 m6">
+        <h1 class="w3-xxlarge"><b>Simulated input controls</b></h1>
+        <h1 class="w3-xlarge w3-text-red"><b>Keyboard and mouse</b>    <img src="../images/keyboard_mouse.png" class="w3-image" width="200"></h1>
+      </div>
+    </div>
+    <div class="w3-center" style="background-color:#aaa;">
+      <h3>Activate the devices</h3>
+      <table class="w3-text-black w3-center" style="width:100%">
+        <tr>
+          <th><img src="../images/controller.png" class="w3-image" width="200"></th>
+          <th><img src="../images/headset.png" class="w3-image" width="200"></th>
+          <th><img src="../images/controller.png" class="w3-image" style="transform:scaleX(-1)" width="200"></th>
+        </tr>
+        <tr>
+          <th>Left controller</th>
+          <th>Headset</th>
+          <th>Right Controller</th>
+        </tr>
+        <tr>
+          <td>Hold Left Shift or toggle with T </td>
+          <td>Hold Right-click</td>
+          <td>
+            Hold Spacebar or toggle with y
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="row">
+    </div>
+    <div class="column w3-center" style="background-color:#bbb">
+      <h3>Basic controls</h3>
+      <table class="w3-text-black" style="width:80%; margin-left:auto; margin-right:auto;">
+        <tr>
+          <th style="text-align: left">Pan</th>
+          <td>Move mouse</td>
+        </tr>
+        <tr>
+          <th style="text-align: left">Rotate</th>
+          <td>Hold middle mouse</td>
+        </tr>
+        <tr>
+          <th style="text-align: left">Move forward/backward</th>
+          <td>Scroll middle mouse</td>
+        </tr>
+        <tr>
+          <th style="text-align: left">Inverse controls</th>
+          <td>R</td>
+        </tr>
+        <tr>
+          <th style="text-align: left">Reset transform</th>
+          <td>V</td>
+        </tr>
+        <tr>
+          <th style="text-align: left">Snap turn</th>
+          <td>A [left] or D [right]</td>
+        </tr>
+      </table>
+    </div>
+    <div class="column w3-center" style="background-color:#ccc;">
+      <h3>Input controls</h3>
+      <table class="w3-text-black" style="width:80%; margin-left:auto; margin-right:auto;">
+        <tr>
+          <th style="text-align: left">Grip</th>
+          <td>G</td>
+        </tr>
+        <tr>
+          <th style="text-align: left">Trigger</th>
+          <td>Left-click</td>
+        </tr>
+        <tr>
+          <th style="text-align: left">Primary button</th>
+          <td>B</td>
+        </tr>
+        <tr>
+          <th style="text-align: left">Secondary button</th>
+          <td>N</td>
+      </table>
+    </div>
+  </div>
+
+  <div class="w3-padding-64 w3-light-grey">
+    <div class="w3-row-padding">
+      <div class="w3-col l8 m6">
+        <h1 class="w3-xlarge w3-text-red"><b>Touchscreen</b>    <img src="../images/screen_touch.png" class="w3-image" width="60"></h1>
+      </div>
+    </div>
+    <div class="w3-center" style="background-color:#aaa;">
+      <h3>Activate the devices</h3>
+      <table class="w3-text-black w3-center" style="width:100%">
+        <tr>
+          <th><img src="../images/controller.png" class="w3-image" width="200"></th>
+          <th><img src="../images/headset.png" class="w3-image" width="200"></th>
+          <th><img src="../images/controller.png" class="w3-image" style="transform:scaleX(-1)" width="200"></th>
+        </tr>
+        <tr>
+          <th>Left controller</th>
+          <th>Headset</th>
+          <th>Right controller</th>
+        </tr>
+        <tr>
+          <td>Toggle with 3 fingers tap</td>
+          <td>Slide</td>
+          <td>
+            N/A
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="row">
+    </div>
+    <div class="column w3-center" style="background-color:#bbb">
+      <h3>Basic controls</h3>
+      <table class="w3-text-black" style="width:80%; margin-left:auto; margin-right:auto;">
+        <tr>
+          <th style="text-align: left">Pan</th>
+          <td>Slide</td>
+        </tr>
+        <tr>
+          <th style="text-align: left">Rotate</th>
+          <td>Slide</td>
+        </tr>
+        <tr>
+          <th style="text-align: left">Move forward/backward</th>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <th style="text-align: left">Inverse controls</th>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <th style="text-align: left">Reset transform</th>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <th style="text-align: left">Snap turn</th>
+          <td>N/A</td>
+        </tr>
+      </table>
+    </div>
+    <div class="column w3-center" style="background-color:#ccc;">
+      <h3>Input controls</h3>
+      <table class="w3-text-black" style="width:80%; margin-left:auto; margin-right:auto;">
+        <tr>
+          <th style="text-align: left">Grip</th>
+          <td>Tap</td>
+        </tr>
+        <tr>
+          <th style="text-align: left">Trigger</th>
+          <td>2 fingers tap </td>
+        </tr>
+        <tr>
+          <th style="text-align: left">Primary button</th>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <th style="text-align: left">Secondary button</th>
+          <td>N/A</td>
+      </table>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-container w3-light-grey w3-center w3-xlarge">
+    <div class="w3-section">
+      <a href="https://www.linkedin.com/in/miguel-casasnovas-bielsa-6a5426153">
+        <i class="fa fa-linkedin w3-hover-text-blue"></i>
+      </a>
+    </div>
+    <p class="w3-medium">By <a href="https://www.linkedin.com/in/miguel-casasnovas-bielsa-6a5426153" target="_blank" class="w3-hover-text-blue">Miguel Casasnovas Bielsa</a></p>
+  </footer>
+
+  <script type="text/javascript" src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+  <script src="https://unpkg.com/event-target@latest/min.js"></script>
+  <script src="https://unpkg.com/resize-observer-polyfill@1.5.0/dist/ResizeObserver.global.js"></script>
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
+  <script type="module" src="js/main.js"></script>
+
+</body>
