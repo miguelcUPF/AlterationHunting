@@ -11,7 +11,7 @@ This game is open source, allowing you to modify and customize the application a
 ## Game Story
 Prepare yourself for a collision between universes within the room! Entities from another universe will swap with existing items, and new objects will emerge. Your mission is to remember the original objects in the room and identify the anomalies that do not belong to your reality. Luckily, you possess a portal gun to return these disruptions to their original universes. Your task is to find and restore these alterations to maintain the stability of the multiverse!
 
-##Game Operation
+## Game Operation
 As a player, you will be inside the room, with the ability to interact with various objects. You are given a limited amount of time to observe and memorize the elements and their colors before the multiverse collision occurs.
 
 Once time runs out, the room undergoes alterations. However, a portal gun remains in your possession. This gun visually indicates the number of alterations that have taken place. Your objective is to identify the objects that don't belong to the initial room and use the portal gun to shoot and return them to their rightful universes.
