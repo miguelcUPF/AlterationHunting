@@ -1,4 +1,5 @@
 <!DOCTYPE HTML>
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
@@ -9,8 +10,14 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <style>
-    body, h1, h2, h3, h4, h5 {
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
       font-family: "Poppins", sans-serif
     }
 
@@ -25,12 +32,14 @@
     .mySlides {
       display: none;
     }
+
     /* Create two equal columns that floats next to each other */
     .column {
       float: left;
       width: 50%;
       padding: 10px;
-      height: 300px; /* Should be removed. Only for demonstration */
+      height: 300px;
+      /* Should be removed. Only for demonstration */
     }
 
 
@@ -47,6 +56,16 @@
         width: 100%;
       }
     }
+
+    input[type="number"] {
+      width: 80px;
+      padding: 8px;
+      margin: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 12px;
+    }
   </style>
 </head>
 
@@ -59,8 +78,18 @@
     <div id="player"></div>
 
     <section class="w3-center">
-      <a class="w3-hover-text-blue " href="https://github.com/Unity-Technologies/UnityRenderStreaming/tree/develop/WebApp/public/receiver"
-         title="View source for this page on GitHub" id="viewSource">View source on GitHub</a>
+      <label for="frameRateInput">Frame Rate:</label>
+      <input type="number" id="frameRateInput" value="10" min="1" max="120">
+      <label for="videoBitsInput">Video Mbps:</label>
+      <input type="number" id="videoBitsInput" value="100" min="1" max="1000">
+      <button id="toggleRecordingButton" class="w3-button w3-padding-large w3-section w3-round w3-green"
+        style="font-size: 12px;">Start Recording</button>
+    </section>
+
+    <section class="w3-center">
+      <a class="w3-hover-text-blue "
+        href="https://github.com/Unity-Technologies/UnityRenderStreaming/tree/develop/WebApp/public/receiver"
+        title="View source for this page on GitHub" id="viewSource">View source on GitHub</a>
     </section>
   </div>
   <h1 class="w3-xlarge w3-text-red w3-center">
@@ -72,7 +101,8 @@
     <div class="w3-row-padding">
       <div class="w3-col l8 m6">
         <h1 class="w3-xxlarge"><b>Simulated input controls</b></h1>
-        <h1 class="w3-xlarge w3-text-red"><b>Keyboard and mouse</b>    <img src="../images/keyboard_mouse.png" class="w3-image" width="200"></h1>
+        <h1 class="w3-xlarge w3-text-red"><b>Keyboard and mouse</b> <img src="../images/keyboard_mouse.png"
+            class="w3-image" width="200"></h1>
       </div>
     </div>
     <div class="w3-center" style="background-color:#aaa;">
@@ -153,7 +183,8 @@
   <div class="w3-padding-64 w3-light-grey">
     <div class="w3-row-padding">
       <div class="w3-col l8 m6">
-        <h1 class="w3-xlarge w3-text-red"><b>Touchscreen</b>    <img src="../images/screen_touch.png" class="w3-image" width="60"></h1>
+        <h1 class="w3-xlarge w3-text-red"><b>Touchscreen</b> <img src="../images/screen_touch.png" class="w3-image"
+            width="60"></h1>
       </div>
     </div>
     <div class="w3-center" style="background-color:#aaa;">
@@ -238,7 +269,8 @@
         <i class="fa fa-linkedin w3-hover-text-blue"></i>
       </a>
     </div>
-    <p class="w3-medium">By <a href="https://www.linkedin.com/in/miguel-casasnovas-bielsa-6a5426153" target="_blank" class="w3-hover-text-blue">Miguel Casasnovas Bielsa</a></p>
+    <p class="w3-medium">By <a href="https://www.linkedin.com/in/miguel-casasnovas-bielsa-6a5426153" target="_blank"
+        class="w3-hover-text-blue">Miguel Casasnovas Bielsa</a></p>
   </footer>
 
   <script type="text/javascript" src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
@@ -246,5 +278,4 @@
   <script src="https://unpkg.com/resize-observer-polyfill@1.5.0/dist/ResizeObserver.global.js"></script>
   <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
   <script type="module" src="js/main.js"></script>
-
 </body>

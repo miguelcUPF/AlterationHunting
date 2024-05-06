@@ -51,13 +51,16 @@ function onClickPlayButton() {
 
   const playerDiv = document.getElementById('player');
 
+  const frameRate = document.getElementById('frameRateInput');
+  const videoBitsPerSecond = document.getElementById('videoBitsInput');
+
   // add video player
   const elementVideo = document.createElement('video');
   elementVideo.id = 'Video';
   elementVideo.style.touchAction = 'none';
   playerDiv.appendChild(elementVideo);
 
-  setupVideoPlayer(elementVideo).then(value => receiver = value);
+  setupVideoPlayer(elementVideo, frameRate, videoBitsPerSecond).then(value => receiver = value);
 
   // add fullscreen button
   const elementFullscreenButton = document.createElement('img');
@@ -117,3 +120,28 @@ function clearChildren(element) {
     element.removeChild(element.firstChild);
   }
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  const toggleRecordingButton = document.getElementById('toggleRecordingButton');
+  const frameRateInput = document.getElementById('frameRateInput');
+  const videoBitsInput = document.getElementById('videoBitsInput');
+
+  toggleRecordingButton.addEventListener('click', function () {
+    if (!receiver) {
+      console.error('Play button not clicked. Recording is not possible.');
+      return;
+    }
+
+    if (toggleRecordingButton.classList.contains('w3-green')) {
+      receiver.startRecording(frameRateInput.value, videoBitsInput.value);
+      toggleRecordingButton.textContent = 'Stop Recording';
+      toggleRecordingButton.classList.remove('w3-green');
+      toggleRecordingButton.classList.add('w3-red');
+    } else {
+      receiver.stopRecording();
+      toggleRecordingButton.textContent = 'Start Recording';
+      toggleRecordingButton.classList.remove('w3-red');
+      toggleRecordingButton.classList.add('w3-green');
+    }
+  });
+});
