@@ -52,7 +52,7 @@ export class Receiver {
     console.log('Mbps:', videoBitsPerSecond);
     if (this.localStream  && this.localStream.getTracks().length > 0) {
       this.recorder = new MediaRecorder(this.localStream, {
-        mimeType: 'video/webm;codecs=h264',
+        mimeType: 'video/webm',
         videoBitsPerSecond: parseInt(videoBitsInput) * 1000000, // Convert Mbps to bps
         frameRate: parseInt(frameRateInput)
       });
