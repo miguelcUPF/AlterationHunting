@@ -3891,6 +3891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonClick: {fileID: 1010669603}
+  applicationTargetFrameRate: -1
 --- !u!4 &829154082
 Transform:
   m_ObjectHideFlags: 0

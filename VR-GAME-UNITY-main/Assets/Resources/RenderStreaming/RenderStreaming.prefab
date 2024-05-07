@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Depth: 16
   m_AntiAliasing: 1
   m_Codec:
-    m_MimeType: video/VP9
-    m_SdpFmtpLine: implementation_name=Internal;profile-id=0
+    m_MimeType: video/H264
+    m_SdpFmtpLine: implementation_name=NvCodec;level-asymmetry-allowed=1;packetization-mode=1;profile-level-id=42e033
   m_FrameRate: 90
   m_Bitrate:
     min: 50000

@@ -7,11 +7,14 @@ using TMPro;
 public class UIManagerMenu : MonoBehaviour
 {
     [SerializeField] private GameObject ButtonClick;
+    [SerializeField] private int applicationTargetFrameRate = -1;
+
     GameObject[] renderStreaming;//create RenderStreaming object 
 
     // Start is called before the first frame update
     void Start()
     {
+        Application.targetFrameRate = applicationTargetFrameRate;
         if (GameResult.started == 0)
         {
             renderStreaming = Resources.LoadAll<GameObject>("RenderStreaming");
