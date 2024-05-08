@@ -110,6 +110,9 @@ async function setupVideoPlayer(elements) {
 function onDisconnect() {
   const playerDiv = document.getElementById('player');
   clearChildren(playerDiv);
+  toggleRecordingButton.textContent = 'Start Recording';
+  toggleRecordingButton.classList.remove('w3-red');
+  toggleRecordingButton.classList.add('w3-green');
   receiver.stop();
   receiver = null;
   showPlayButton();
@@ -138,10 +141,10 @@ document.addEventListener('DOMContentLoaded', function () {
       toggleRecordingButton.classList.remove('w3-green');
       toggleRecordingButton.classList.add('w3-red');
     } else {
-      receiver.stopRecording();
       toggleRecordingButton.textContent = 'Start Recording';
       toggleRecordingButton.classList.remove('w3-red');
       toggleRecordingButton.classList.add('w3-green');
+      receiver.stopRecording();
     }
   });
 });

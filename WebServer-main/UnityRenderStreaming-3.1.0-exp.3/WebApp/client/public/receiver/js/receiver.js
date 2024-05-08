@@ -49,46 +49,42 @@ export class Receiver {
   startRecording(frameRate, videoBitsPerSecond) {
     console.log('Start Recording');
     console.log('Frame rate:', frameRate);
-    console.log('Mbps:', videoBitsPerSecond);
-    if (this.localStream  && this.localStream.getTracks().length > 0) {
-      this.recorder = new MediaRecorder(this.localStream, {
+    console.log('kbps:', videoBitsPerSecond);
+    if (this.localStream && this.localStream.getTracks().length > 0) {
+      this.recorder = new RecordRTC(this.localStream, {
+        type: 'video',
         mimeType: 'video/webm',
-        videoBitsPerSecond: parseInt(videoBitsInput) * 1000000, // Convert Mbps to bps
-        frameRate: parseInt(frameRateInput)
+        videoBitsPerSecond: parseInt(videoBitsPerSecond) * 1000,
+        frameInterval: parseInt(frameRate),
+        frameRate: parseInt(frameRate),
+        timeSlice: 1/parseInt(frameRate) * 1000,
       });
 
-      let chunks = [];
-
-      this.recorder.ondataavailable = function (e) {
-        // Save the recorded chunks
-        chunks.push(e.data);
-      };
-
-      this.recorder.start();
-
-      this.recorder.onstop = () => {
-        console.log('Stop Recording');
-
-        // Combine recorded chunks into a single Blob
-        const blob = new Blob(chunks, { type: 'video/webm' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.style.display = 'none';
-        a.href = url;
-        a.download = 'recording.webm';
-        document.body.appendChild(a);
-        a.click();
-        setTimeout(() => {
-          document.body.removeChild(a);
-          URL.revokeObjectURL(url);
-        }, 100);
-      };
+      this.recorder.startRecording();
     }
   }
 
   stopRecording() {
-    if (this.recorder && this.recorder.state !== 'inactive') {
-      this.recorder.stop();
+    if (this.recorder) {
+      this.recorder.stopRecording(() => {
+        console.log('Stop Recording');
+
+        const blob = this.recorder.getBlob();
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        a.download = 'recording.webm';
+
+        document.body.appendChild(a);
+        a.click();
+
+        setTimeout(() => {
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        }, 100);
+      });
     }
   }
 
